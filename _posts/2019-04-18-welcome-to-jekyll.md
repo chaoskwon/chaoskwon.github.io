@@ -8,7 +8,7 @@ tags:
   - 코드리뷰
 ---
 
-<span style="font-size:2em;">
+<font size="1"> 
 이 페이지는 아래 원본 사이트의 번역본입니다. 
 원본 : https://github.com/golang/go/wiki/CodeReviewComments
 원본 마지막 편집일 : 2021.09.09 by 이안 랜스 테일러(Ian Lance Taylor)
@@ -47,7 +47,7 @@ tags:
 * Synchronous Functions
 * Useful Test Failures
 * Variable Names
-</span>
+</font>
 
 <a name="gofmt">
   <h2>Gofmt</h2>
