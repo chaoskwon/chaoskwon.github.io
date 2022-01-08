@@ -14,12 +14,10 @@ tags:
 이 페이지는 Go 코드리뷰 동안 만들어진 코멘트들을 모아놓은것입니다. 각 디테일한 설명들은 속기로 이루어졌기 때문에 스타일 가이드라기 보다는 자주 발생하는 실수들의 리스트입니다. 
 이 페이지는 [Effective Go](https://go.dev/doc/effective_go)의 부록이라고 할 수 있습니다.
 
- 
-<ul>
-<li>[Gofmt](#gofmt)</li>
-<li>Comment Sentences</li>
-<li>Contexts</li>
-<li>Copying</li>
+* [Gofmt](#gofmt)
+* Comment Sentences
+* Contexts
+* Copying
 Crypto Rand
 Declaring Empty Slices
 Doc Comments
