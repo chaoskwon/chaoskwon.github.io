@@ -55,12 +55,13 @@ tags:
 
 <a name="commentsentences">
   <h2>Comment Sentences</h2>
-  See https://golang.org/doc/effective_go.html#commentary. Comments documenting declarations should be full sentences, even if that seems a little redundant. This approach makes them format well when extracted into godoc documentation. Comments should begin with the name of the thing being described and end in a period:
+  <https://golang.org/doc/effective_go.html#commentary>를 참조하세요. 선언부에 대한 주석은 중복이 있다 하더라도 완성된 문장이어야 합니다. 이러한 접근은 잘 포맷된 형태로 godoc documentation으로 추출될 수 있도록 합니다. 주석은 설명해야 할 대상의 명칭으로 시작해서 마침표로 끝을 맺어야 합니다:
 
-    // Request represents a request to run a command.
+  
+    // Request 는 명령어를 실행하라는 요청을 나타냅니다.
     type Request struct { ...
 
-    // Encode writes the JSON encoding of req to w.
+    // Encode 는 req의 JSON 인코딩을 w에 씁니다.
     func Encode(w io.Writer, req *Request) { ...
     and so on.
   
