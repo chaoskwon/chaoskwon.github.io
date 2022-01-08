@@ -20,7 +20,7 @@ tags:
 * [Gofmt](#gofmt)
 * [Comment Sentences](#commentsentences)
 * [Contexts](#contexts)
-* Copying
+* [Copying](#copying)
 * Crypto Rand
 * Declaring Empty Slices
 * Doc Comments
@@ -86,8 +86,9 @@ If you have application data to pass around, put it in a parameter, in the recei
 Contexts are immutable, so it's fine to pass the same ctx to multiple calls that share the same deadline, cancellation signal, credentials, parent trace, etc.  
 </a>
   
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
+<a name="copying>
+         <h2>Copying</h2>
+To avoid unexpected aliasing, be careful when copying a struct from another package. For example, the bytes.Buffer type contains a []byte slice. If you copy a Buffer, the slice in the copy may alias the array in the original, causing subsequent method calls to have surprising effects.
 
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+In general, do not copy a value of type T if its methods are associated with the pointer type, *T.
+</a>
