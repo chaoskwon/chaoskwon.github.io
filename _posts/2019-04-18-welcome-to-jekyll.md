@@ -53,16 +53,16 @@ tags:
   gofmt 명령어를 실행하면 기계적 스타일 이슈 대부분이 자동으로 해결됩니다. 실무의 거의 모든 Go 코드에서 gofmt는 사용됩니다. 문서의 나머지에서는 비 기계적이슈에 대해서만 다루게 됩니다. 
 </a>
 
-<a name="#commentsentences">
+<a name="commentsentences">
   <h2>Comment Sentences</h2>
   See https://golang.org/doc/effective_go.html#commentary. Comments documenting declarations should be full sentences, even if that seems a little redundant. This approach makes them format well when extracted into godoc documentation. Comments should begin with the name of the thing being described and end in a period:
 
-  // Request represents a request to run a command.
-  type Request struct { ...
+    // Request represents a request to run a command.
+    type Request struct { ...
 
-  // Encode writes the JSON encoding of req to w.
-  func Encode(w io.Writer, req *Request) { ...
-  and so on.
+    // Encode writes the JSON encoding of req to w.
+    func Encode(w io.Writer, req *Request) { ...
+    and so on.
   
 </a>
 
