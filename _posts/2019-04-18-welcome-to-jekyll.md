@@ -11,7 +11,7 @@ tags:
 <font size=3> 
 이 페이지는 아래 원본 사이트의 번역본입니다.  
   원본 : https://github.com/golang/go/wiki/CodeReviewComments.  
-  원본 마지막 편집일 : 2021.09.09 by 이안 랜스 테일러(Ian Lance Taylor).
+  원본 마지막 편집일 : 2021.09.09 by 이안 랜스 테일러 Ian Lance Taylor.
 
 이 페이지는 Go 코드리뷰 동안 만들어진 코멘트들을 모아놓은것입니다. 각 디테일한 설명들은 속기로 이루어졌기 때문에 스타일 가이드라기 보다는 자주 저지르는 실수들의 리스트입니다.
 이 페이지는 [Effective Go](https://go.dev/doc/effective_go)의 부록이라고 할 수 있습니다.  
@@ -19,7 +19,7 @@ tags:
 
 * [Gofmt](#gofmt)
 * [Comment Sentences](#commentsentences)
-* Contexts
+* [Contexts](#contexts)
 * Copying
 * Crypto Rand
 * Declaring Empty Slices
@@ -68,6 +68,24 @@ tags:
   
 </a>
 
+<a name="contexts"> 
+  <h2>Contexts</h2>
+Values of the context.Context type carry security credentials, tracing information, deadlines, and cancellation signals across API and process boundaries. Go programs pass Contexts explicitly along the entire function call chain from incoming RPCs and HTTP requests to outgoing requests.
+
+Most functions that use a Context should accept it as their first parameter:
+
+func F(ctx context.Context, /* other arguments */) {}
+A function that is never request-specific may use context.Background(), but err on the side of passing a Context even if you think you don't need to. The default case is to pass a Context; only use context.Background() directly if you have a good reason why the alternative is a mistake.
+
+Don't add a Context member to a struct type; instead add a ctx parameter to each method on that type that needs to pass it along. The one exception is for methods whose signature must match an interface in the standard library or in a third party library.
+
+Don't create custom Context types or use interfaces other than Context in function signatures.
+
+If you have application data to pass around, put it in a parameter, in the receiver, in globals, or, if it truly belongs there, in a Context value.
+
+Contexts are immutable, so it's fine to pass the same ctx to multiple calls that share the same deadline, cancellation signal, credentials, parent trace, etc.  
+</a>
+  
 Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
 
 [jekyll-docs]: https://jekyllrb.com/docs/home
