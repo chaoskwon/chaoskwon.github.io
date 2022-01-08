@@ -14,12 +14,14 @@ tags:
 이 페이지는 Go 코드리뷰 동안 만들어진 코멘트들을 모아놓은것입니다. 각 디테일한 설명들은 속기로 이루어졌기 때문에 스타일 가이드라기 보다는 자주 발생하는 실수들의 리스트입니다. 
 이 페이지는 [Effective Go](https://go.dev/doc/effective_go)의 부록이라고 할 수 있습니다.
 
- Gofmt
+ Gofmt[pookie](#gofmt)
 
 
 
+<a name="gofmt">
 Gofmt
 Run gofmt on your code to automatically fix the majority of mechanical style issues. Almost all Go code in the wild uses gofmt. The rest of this document addresses non-mechanical style points.
+</a>
 
 An alternative is to use goimports, a superset of gofmt which additionally adds (and removes) import lines as necessary.
 
