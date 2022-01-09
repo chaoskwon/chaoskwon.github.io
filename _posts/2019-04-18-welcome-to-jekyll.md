@@ -68,10 +68,9 @@ tags:
 
   <a name="contexts"> 
     <h2>Contexts</h2>
-    context.Context는 API와 프로세스간의 보안자격증명(security credentials), 트레킹 정보(tracing information), 데드라인, 취소시그날 등을 전달합니다. Go 프로그램들은 RPC 또는 HTTP 리퀘스트로터 연결돈 펑션콜 체인을 따라 컨텍스트(Contexts)들을 외부로 나가는 리퀘스트에 명시적으로 전달합니다. 
-    Values of the context.Context type carry security credentials, tracing information, deadlines, and cancellation signals across API and process boundaries. Go programs pass Contexts explicitly along the entire function call chain from incoming RPCs and HTTP requests to outgoing requests.
+    context.Context는 API와 프로세스간의 보안자격증명(security credentials), 트레킹 정보(tracing information), 데드라인, 취소시그날 등을 전달합니다. Go 프로그램들은 인커밍하는 RPC 또는 HTTP 리퀘스트로터 컨텍스트(Contexts)들을 펑션콜 체인을 따라 최종 외부로 나가는 리퀘스트에 명시적으로 전달한다.  
 
-    Context를 사용하는 대부분의 펑션은 Context를 첫번째 파라미터로 전달합니다:
+    Context를 사용하는 대부분의 펑션은 Context를 첫번째 파라미터로 전달한다:
 
       func F(<font color="red">ctx context.Context</font>, /* other arguments */) {}
 
