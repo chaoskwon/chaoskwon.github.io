@@ -1,5 +1,5 @@
 ---
-title: "Go 코드리뷰 커멘트"
+title: "Go 코드리뷰"
 date: 2021-01-03T21:17:30-04:00
 categories:
   - blog
