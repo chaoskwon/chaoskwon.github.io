@@ -75,7 +75,7 @@ tags:
 
   Context를 사용하는 대부분의 펑션은 Context를 첫번째 파라미터로 전달합니다:
   
-    func F(<font color="red">ctx context.Context</font>, /* other arguments */) {}
+    func F(<font color='red'>ctx context.Context</font>, /* other arguments */) {}
   
   A function that is never request-specific may use context.Background(), but err on the side of passing a Context even if you think you don't need to. The default case is to pass a Context; only use context.Background() directly if you have a good reason why the alternative is a mistake.
 
