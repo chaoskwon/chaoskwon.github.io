@@ -1,13 +1,13 @@
-Golang 문서 번역
+[gopher](https://chaoskwon.github.io/assets/images/profile.png) Golang 문서 번역
 
-코드리뷰 커멘트
-https://github.com/golang/go/wiki/CodeReviewComments
+- 코드리뷰 커멘트
+  https://github.com/golang/go/wiki/CodeReviewComments
 
-Go 예제들
-https://gobyexample.com/
+- Go 예제들
+  https://gobyexample.com/
 
-Go의 50가지 그림자
-http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
+- Go의 50가지 그림자
+  http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
 
-Go
-https://go.dev/doc/effective_go
+- Go
+  https://go.dev/doc/effective_go
