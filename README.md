@@ -1,7 +1,7 @@
 ![gopher](https://chaoskwon.github.io/assets/images/profile.png)
 # Golang 문서 번역
-> - [코드리뷰 커멘트](https://chaoskwon.github.io/_posts/code_review_comments.md)   
->   원본 : https://github.com/golang/go/wiki/CodeReviewComments
+> - [코드 리뷰](https://chaoskwon.github.io/_posts/code_review_comments.md)   
+>   원본 : [https://github.com/golang/go/wiki/CodeReviewComments](https://github.com/golang/go/wiki/CodeReviewComments)
 > 
 > - Go 예제들
 >   https://gobyexample.com/
