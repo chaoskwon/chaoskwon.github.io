@@ -70,11 +70,13 @@ tags:
 
 <a name="contexts"> 
   <h2>Contexts</h2>
+  context.Context는 API와 프로세스간의 보안자격증명(security credentials), 트레킹 정보(tracing information), 데드라인, 취소시그날 등을 전달합니다. Go 프로그램들은 RPC 또는 HTTP 리퀘스트로터 연결돈 펑션콜 체인을 따라 컨텍스트(Contexts)들을 외부로 나가는 리퀘스트에 명시적으로 전달합니다. 
   Values of the context.Context type carry security credentials, tracing information, deadlines, and cancellation signals across API and process boundaries. Go programs pass Contexts explicitly along the entire function call chain from incoming RPCs and HTTP requests to outgoing requests.
 
-  Most functions that use a Context should accept it as their first parameter:
-
-  func F(ctx context.Context, /* other arguments */) {}
+  Context를 사용하는 대부분의 펑션은 Context를 첫번째 파라미터로 전달합니다:
+  
+    func F(<font color="red">ctx context.Context</font>, /* other arguments */) {}
+  
   A function that is never request-specific may use context.Background(), but err on the side of passing a Context even if you think you don't need to. The default case is to pass a Context; only use context.Background() directly if you have a good reason why the alternative is a mistake.
 
   Don't add a Context member to a struct type; instead add a ctx parameter to each method on that type that needs to pass it along. The one exception is for methods whose signature must match an interface in the standard library or in a third party library.
