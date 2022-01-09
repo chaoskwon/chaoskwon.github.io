@@ -59,8 +59,8 @@ tags:
   <https://golang.org/doc/effective_go.html#commentary>를 참조하세요. 선언부에 대한 주석은 중복이 있다 하더라도 완성된 문장이어야 합니다. 이러한 접근은 잘 포맷된 형태로 godoc documentation으로 추출될 수 있도록 합니다. 주석은 설명해야 할 대상의 명칭으로 시작해서 마침표로 끝을 맺어야 합니다:
 
   
-    // Request 는 명령어를 실행하라는 요청을 나타냅니다.
-    type Request struct { ...
+    <p style="color:red">// Request 는 명령어를 실행하라는 요청을 나타냅니다.</p>
+    type <p style="color:red">Request</p> struct { ...
 
     // Encode 는 req의 JSON 인코딩을 w에 씁니다.
     func Encode(w io.Writer, req *Request) { ...
@@ -75,7 +75,7 @@ tags:
 
   Context를 사용하는 대부분의 펑션은 Context를 첫번째 파라미터로 전달합니다:
   
-    func F(<font color='red'>ctx context.Context</font>, /* other arguments */) {}
+    func F(<p style="color:red">ctx context.Context</p>, /* other arguments */) {}
   
   A function that is never request-specific may use context.Background(), but err on the side of passing a Context even if you think you don't need to. The default case is to pass a Context; only use context.Background() directly if you have a good reason why the alternative is a mistake.
 
