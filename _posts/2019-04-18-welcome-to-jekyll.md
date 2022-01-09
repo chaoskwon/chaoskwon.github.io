@@ -49,12 +49,12 @@ tags:
 * Useful Test Failures
 * Variable Names
 
+<font size=2> 
 <a name="gofmt">
   <h2>Gofmt</h2>
-  <font size=2> 
   gofmt 명령어를 실행하면 기계적 스타일 이슈 대부분이 자동으로 해결됩니다. 실무의 거의 모든 Go 코드에서 gofmt는 사용됩니다. 문서의 나머지에서는 비 기계적이슈에 대해서만 다루게 됩니다. 
-  </font>
 </a>
+</font>
 
 <a name="commentsentences">
   <h2>Comment Sentences</h2>
@@ -81,12 +81,18 @@ tags:
   
     func F(<font color="red">ctx context.Context</font>, /* other arguments */) {}
   
+  request를 사용하지 않는 펑션이라면 Context를 전달할때 err도 같이 전달하여(err은 필요하지 않떠라도) context.Background()을 바로 사용할 수 있습니다. 
+  Context를 전달하는 디폴트 케이스: 
   A function that is never request-specific may use context.Background(), but err on the side of passing a Context even if you think you don't need to. The default case is to pass a Context; only use context.Background() directly if you have a good reason why the alternative is a mistake.
-
+    
+  struct 타입에는 Context를 멤버로 직접 추가하지 말고 대신에 ctx 파라미터를 메소드에 파라미터를 추가하여 사용하세요. 유일한 예외가 있는데 이는 메쏘드 타입이 스탠다드 라이브러리 또는 써드파티 라이브러리(third party library)의 인터페이스와 매칭되어야 하는 경우입니다. 
+    
   Don't add a Context member to a struct type; instead add a ctx parameter to each method on that type that needs to pass it along. The one exception is for methods whose signature must match an interface in the standard library or in a third party library.
 
+  사용자 정의 Context 타입을 생성하거나 함수타입에서 컨텍스트 이외의 인터페이스를 사용하지 마십시오.
   Don't create custom Context types or use interfaces other than Context in function signatures.
 
+  전달해야 하는 application 데이타가 있다면 파라미터로 만들어서 리시버(receiver)에 글로벌(globals)에 또는 
   If you have application data to pass around, put it in a parameter, in the receiver, in globals, or, if it truly belongs there, in a Context value.
 
   Contexts are immutable, so it's fine to pass the same ctx to multiple calls that share the same deadline, cancellation signal, credentials, parent trace, etc.  
