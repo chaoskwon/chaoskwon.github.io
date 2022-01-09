@@ -8,7 +8,7 @@ tags:
   - 코드리뷰
 ---
 
-<font size=2> 
+<font size=3> 
 이 페이지는 아래 원본 사이트의 번역본입니다.  
   원본 : https://github.com/golang/go/wiki/CodeReviewComments.  
   원본 마지막 편집일 : 2021.09.09 by 이안 랜스 테일러 Ian Lance Taylor.
@@ -51,11 +51,14 @@ tags:
 
 <a name="gofmt">
   <h2>Gofmt</h2>
+  <font size=2> 
   gofmt 명령어를 실행하면 기계적 스타일 이슈 대부분이 자동으로 해결됩니다. 실무의 거의 모든 Go 코드에서 gofmt는 사용됩니다. 문서의 나머지에서는 비 기계적이슈에 대해서만 다루게 됩니다. 
+  </font>
 </a>
 
 <a name="commentsentences">
   <h2>Comment Sentences</h2>
+  <font size=2> 
   <https://golang.org/doc/effective_go.html#commentary>를 참조하세요. 선언부에 대한 주석은 중복이 있다 하더라도 완성된 문장이어야 합니다. 이러한 접근은 잘 포맷된 형태로 godoc documentation으로 추출될 수 있도록 합니다. 주석은 설명해야 할 대상의 명칭으로 시작해서 마침표로 끝을 맺어야 합니다:
 
   
@@ -65,11 +68,12 @@ tags:
     // Encode 는 req의 JSON 인코딩을 w에 씁니다.
     func Encode(w io.Writer, req *Request) { ...
     and so on.
-  
+  </font>
 </a>
 
 <a name="contexts"> 
   <h2>Contexts</h2>
+  <font size=2>
   context.Context는 API와 프로세스간의 보안자격증명(security credentials), 트레킹 정보(tracing information), 데드라인, 취소시그날 등을 전달합니다. Go 프로그램들은 RPC 또는 HTTP 리퀘스트로터 연결돈 펑션콜 체인을 따라 컨텍스트(Contexts)들을 외부로 나가는 리퀘스트에 명시적으로 전달합니다. 
   Values of the context.Context type carry security credentials, tracing information, deadlines, and cancellation signals across API and process boundaries. Go programs pass Contexts explicitly along the entire function call chain from incoming RPCs and HTTP requests to outgoing requests.
 
@@ -86,6 +90,7 @@ tags:
   If you have application data to pass around, put it in a parameter, in the receiver, in globals, or, if it truly belongs there, in a Context value.
 
   Contexts are immutable, so it's fine to pass the same ctx to multiple calls that share the same deadline, cancellation signal, credentials, parent trace, etc.  
+  </font>
 </a>
   
 <a name="copying>
