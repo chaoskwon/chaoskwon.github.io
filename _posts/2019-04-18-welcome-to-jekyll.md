@@ -8,7 +8,7 @@ tags:
   - 코드리뷰
 ---
 
-<font size=3> 
+<font size=2> 
 이 페이지는 아래 원본 사이트의 번역본입니다.  
   원본 : https://github.com/golang/go/wiki/CodeReviewComments.  
   원본 마지막 편집일 : 2021.09.09 by 이안 랜스 테일러 Ian Lance Taylor.
