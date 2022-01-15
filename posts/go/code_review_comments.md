@@ -73,23 +73,23 @@ tags:
       이 때 Context를 사용하는 대부분의 펑션은 Context를 첫번째 파라미터로 전달한다:   
     
         func F(ctx context.Context, /* other arguments */) {}
-    
-      컨텍스를 직접 생성할 때에는 context.Background()를 사용할 수 있는데 이 때 리턴값으로 Context와 함께 err을 같이 전달하여 사용하는 것이 좋다. 
-      그러나 기본은 컨텍스를 생성하는 것이 아니라 전달하는 것이다. 그러므로 context.Background()를 사용할 때에는 충분한 이유가 있어야 한다. 
 
-      struct 타입일 경우에는 컨텍스트를 멤버로 직접 추가하지 말고 필요한 메소드에 컨텍스트 타입으로 ctx 파라미터를 추가하여 사용해야 한다. 그러나 
-      메쏘드의 [시그니처](https://developer.mozilla.org/ko/docs/Glossary/Signature/Function)가 스탠다드 라이브러리 또는 써드파티 라이브러리의 인터페이스와 매칭이 필요한 경우에는 예외로 한다.
+    컨텍스를 직접 생성할 때에는 context.Background()를 사용할 수 있는데 이 때 리턴값으로 Context와 함께 err을 같이 전달하여 사용하는 것이 좋다. 
+    그러나 기본은 컨텍스를 생성하는 것이 아니라 전달하는 것이다. 그러므로 context.Background()를 사용할 때에는 충분한 이유가 있어야 한다. 
 
-      사용자 정의 Context 타입을 생성하거나 함수시그니처에서 컨텍스트 이외의 인터페이스를 사용해서는 안된다.
-      Don't create custom Context types or use interfaces other than Context in function signatures.
+    struct 타입일 경우에는 컨텍스트를 멤버로 직접 추가하지 말고 필요한 메소드에 컨텍스트 타입으로 ctx 파라미터를 추가하여 사용해야 한다. 그러나 
+    메쏘드의 [시그니처](https://developer.mozilla.org/ko/docs/Glossary/Signature/Function)가 스탠다드 라이브러리 또는 써드파티 라이브러리의 인터페이스와 매칭이 필요한 경우에는 예외로 한다.
 
-      전달해야 하는 데이타가 있을때 파마미터, 리시버(receiver) 또는 글로벌 변수(golbals)에 넣을 수 있고 필요에 따라 컨텍스트에 넣어 전달 할 수 있다. 
-      If you have application data to pass around, put it in a parameter, in the receiver, in globals, or, if it truly belongs there, in a Context value.
+    사용자 정의 Context 타입을 생성하거나 함수시그니처에서 컨텍스트 이외의 인터페이스를 사용해서는 안된다.
+    Don't create custom Context types or use interfaces other than Context in function signatures.
 
-      컨텍스트는 불변(immutable) 하기 때문에 컨텍스트를 다수의 콜에 전달해서 사용하기에 좋다. 각 콜들은 동일한 데드라인, 취소 시그날, 자격증명, 상위 트래킹 정보(parent trace)를 공유한다. 
+    전달해야 하는 데이타가 있을때 파마미터, 리시버(receiver) 또는 글로벌 변수(golbals)에 넣을 수 있고 필요에 따라 컨텍스트에 넣어 전달 할 수 있다. 
+    If you have application data to pass around, put it in a parameter, in the receiver, in globals, or, if it truly belongs there, in a Context value.
+
+    컨텍스트는 불변(immutable) 하기 때문에 컨텍스트를 다수의 콜에 전달해서 사용하기에 좋다. 각 콜들은 동일한 데드라인, 취소 시그날, 자격증명, 상위 트래킹 정보(parent trace)를 공유한다. 
     </a>
     
-    <a name="copying>
+    <a name="copying">
       <h2>Copying</h2>
       다른 패키지의 스트럭처를 복사할때 원치않는 [알리아싱](https://seonggyu.tistory.com/24)이 발생하지 않도록 조심해야 한다. 예를들어 bytes.Buffer 타입은 []byte slice를 포함하고 있는데
       Buffer를 복사 하게 되면 복사된 Buffer의 slice는 원본에 있는 배열을 알리아싱하게 될 수도 있다. 이럴 경우 생각지 못한 결과를 메쏘드 콜을 발생시킬 수도 있다. 
