@@ -1,4 +1,5 @@
-![gopher](https://chaoskwon.github.io/assets/images/profile.png) <h3>Golang 문서 번역</h3>
+![gopher](https://chaoskwon.github.io/assets/images/profile.png) 
+<h2>Golang 문서 번역</h2>
 
 - [코드리뷰 커멘트](./posts/go/code_review_comments.md)  
   원본 : https://github.com/golang/go/wiki/CodeReviewComments
