@@ -139,11 +139,11 @@ tags:
 
   <a name="doccomments">
     <h2>Doc Comments</h2>
-  	모든 탑레벨 익스포트에는 문서 주석이 있어야 한다. 사소하지 않은 unexported 타입이나 함수 선언도 마찬가지이다. 주석 규약에 대한 좀 더 많은 정보를 위해서 [https://golang.org/doc/effective_go.html#commentary](https://golang.org/doc/effective_go.html#commentary)를 참조할 수 있다.
+  	모든 탑레벨 익스포트에는 문서 주석이 있어야 한다. 사소하지 않은 unexported 타입이나 함수 선언도 마찬가지이다. 주석 규약에 대한 좀 더 많은 정보를 위해서 <https://golang.org/doc/effective_go.html#commentary>를 참조할 수 있다.
 	</a>
 	<a name="#don'tpanic">
 		<h2>Don't Panic</h2>
-		[https://golang.org/doc/effective_go.html#errors](https://golang.org/doc/effective_go.html#errors)를 참조해라. 일반적인 에러 핸들링을 위해 패닉을 사용하지말고 반환값으로 에러를 사용해라
+		<https://golang.org/doc/effective_go.html#errors>를 참조해라. 일반적인 에러 핸들링을 위해 패닉을 사용하지말고 반환값으로 에러를 사용해라
 	</a>
 	<a name="errorstrings">
 		<h2>Error Strings</h2>
