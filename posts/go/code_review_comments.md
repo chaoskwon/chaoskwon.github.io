@@ -24,8 +24,8 @@ tags:
 - [Crypto Rand](#cryptorand)
 - [Declaring Empty Slices](#declaringemptyslices)
 - [Doc Comments](#doccomments)
-- Don't Panic
-- Error Strings
+- [Don't Panic](#don'tpanic)
+- [Error Strings](#errorstrings)
 - Examples
 - Goroutine Lifetimes
 - Handle Errors
@@ -125,15 +125,10 @@ tags:
   
   <a name="#declaringemptyslices">
     <h2>Declaring Empty Slices</h2>
-    빈 슬라이스를 선언할 때 
-      
-      var t []string 
-    
-    을 
+    빈 슬라이스를 선언할 때 위의 형식을 아래 형식보다 선호한다.
+      var t []string
     
       t := []string{}
-
-    보다 선호한다.
     
     전자의 경우 nil로 초기화 되고 후자의 경우 nil이 아닌 길이가 0인 슬랑이스로 초기화된다. 기능적으로는 len 과 cap 이 모두 0으로 동일하지만 nil 슬라이스가 좀 더 선호된다. 
    
@@ -144,13 +139,18 @@ tags:
 
   <a name="doccomments">
     <h2>Doc Comments</h2>
-  
-  All top-level, exported names should have doc comments, as should non-trivial unexported type or function declarations. See https://golang.org/doc/effective_go.html#commentary for more information about commentary conventions.
+  	
+	  모든 탑레벨 익스포트에는 문서 주석이 있어야 한다. 사소하지 않은 unexported 타입이나 함수 선언도 마찬가지이다. 주석 규약에 대한 좀 더 많은 정보를 위해서 https://golang.org/doc/effective_go.html#commentary(https://golang.org/doc/effective_go.html#commentary)를 참조할 수 있다.
+	</a>
+	<a name="#don'tpanic">
+		<h2>Don't Panic</h2>
+		https://golang.org/doc/effective_go.html#errors(https://golang.org/doc/effective_go.html#errors)를 참조해라. 일반적인 에러 핸들링을 위해 패닉을 사용하지말고 반환값으로 에러를 사용해라
+	</a>
+	<a name="errorstrings">
+		<h2>Error Strings</h2>
 
-Don't PanicSee https://golang.org/doc/effective_go.html#errors. Don't use panic for normal error handling. Use error and multiple return values.
-
-Error StringsError strings should not be capitalized (unless beginning with proper nouns or acronyms) or end with punctuation, since they are usually printed following other context. That is, use fmt.Errorf("something bad") not fmt.Errorf("Something bad"), so that log.Printf("Reading %s: %v", filename, err) formats without a spurious capital letter mid-message. This does not apply to logging, which is implicitly line-oriented and not combined inside other messages.
-
+		Error strings should not be capitalized (unless beginning with proper nouns or acronyms) or end with punctuation, since they are usually printed following other context. That is, use fmt.Errorf("something bad") not fmt.Errorf("Something bad"), so that log.Printf("Reading %s: %v", filename, err) formats without a spurious capital letter mid-message. This does not apply to logging, which is implicitly line-oriented and not combined inside other messages.
+	</a>
 ExamplesWhen adding a new package, include examples of intended usage: a runnable Example, or a simple test demonstrating a complete call sequence.
 
 Read more about testable Example() functions.
