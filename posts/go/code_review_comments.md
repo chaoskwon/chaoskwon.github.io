@@ -95,7 +95,7 @@ tags:
       Buffer를 복사 하게 되면 복사된 Buffer의 slice는 원본에 있는 배열을 알리아싱하게 될 수도 있다. 이럴 경우 생각지 못한 결과를 메쏘드 콜을 발생시킬 수도 있다. 
       To avoid unexpected aliasing, be careful when copying a struct from another package. For example, the bytes.Buffer type contains a []byte slice. If you copy a Buffer, the slice in the copy may alias the array in the original, causing subsequent method calls to have surprising effects.   
 
-      T라는 값이 있을때 메소드가 포인터 *T와 연계되어 있다면 일반적으로 T의 값을 복사하지 않는다. 
-      In general, do not copy a value of type T if its methods are associated with the pointer type, *T.
+    T라는 값이 있을때 메소드가 포인터 *T와 연계되어 있다면 일반적으로 T의 값을 복사하지 않는다. 
+    In general, do not copy a value of type T if its methods are associated with the pointer type, *T.
 
     </a>
